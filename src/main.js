@@ -66,7 +66,8 @@ async function onSearch(e) {
     if (data.hits.length < totalHits) {
       showLoadMoreButton();
     }
-  } catch {
+  } catch (error) {
+    console.error(error);
     iziToast.error({
       title: 'Error',
       message: 'Something went wrong',
@@ -96,7 +97,8 @@ async function onLoadMore() {
         position: 'topRight',
       });
     }
-  } catch {
+  } catch (error) {
+    console.error(error);
     iziToast.error({
       title: 'Error',
       message: 'Something went wrong',
@@ -108,9 +110,9 @@ async function onLoadMore() {
 }
 
 function smoothScroll() {
-  const { height: cardHeight } = document
-    .querySelector('.gallery')
-    .firstElementChild.getBoundingClientRect();
+  const firstCard = document.querySelector('.gallery').firstElementChild;
+  if (!firstCard) return;
+  const { height: cardHeight } = firstCard.getBoundingClientRect();
 
   window.scrollBy({
     top: cardHeight * 2,

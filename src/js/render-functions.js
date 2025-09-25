@@ -14,30 +14,30 @@ export function createGallery(images) {
   const markup = images
     .map(
       image => `
-      <li class="gallery-item">
-        <a href="${image.largeImageURL}">
-          <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy"/>
-        </a>
-        <div class="info">
-          <div class="info-item">
-            <p class="label">Likes</p>
-            <p class="value">${image.likes}</p>
-          </div>
-          <div class="info-item">
-            <p class="label">Views</p>
-            <p class="value">${image.views}</p>
-          </div>
-          <div class="info-item">
-            <p class="label">Comments</p>
-            <p class="value">${image.comments}</p>
-          </div>
-          <div class="info-item">
-            <p class="label">Downloads</p>
-            <p class="value">${image.downloads}</p>
-          </div>
+    <li class="gallery-item">
+      <a href="${image.largeImageURL}">
+        <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy"/>
+      </a>
+      <div class="info">
+        <div class="info-item">
+          <p class="label">Likes</p>
+          <p class="value">${image.likes}</p>
         </div>
-      </li>
-    `
+        <div class="info-item">
+          <p class="label">Views</p>
+          <p class="value">${image.views}</p>
+        </div>
+        <div class="info-item">
+          <p class="label">Comments</p>
+          <p class="value">${image.comments}</p>
+        </div>
+        <div class="info-item">
+          <p class="label">Downloads</p>
+          <p class="value">${image.downloads}</p>
+        </div>
+      </div>
+    </li>
+  `
     )
     .join('');
 
